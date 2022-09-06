@@ -3,48 +3,54 @@
 ## users table
 | column             | type   | option                     |
 |--------------------|--------|----------------------------|
-| nick_name          | string | null: false                |
-| email              | string | null: false , unique: true |
-| encrypted_password | string | null: false                |
-| first_name         | string | null: false                |
-| last_name          | string | null: false                |
-| kana_first         | string | null: false                |
-| kana_last          | string | null: false                |
-| birth_day          | date   | null: false                |
+| nick_name          | string | null: false                | <!-- ニックネーム -->
+| email              | string | null: false , unique: true | <!-- メールアドレス -->
+| encrypted_password | string | null: false                | <!-- パスワード(暗号化) -->
+| last_name          | string | null: false                | <!-- 名字 -->
+| first_name         | string | null: false                | <!-- 名前 -->
+| kana_last          | string | null: false                | <!-- 苗字(カタカナ) -->
+| kana_first         | string | null: false                | <!-- 名前(カタカナ) -->
+| birth_day          | date   | null: false                | <!-- 生年月日 -->
 
 ### Association
 * has_many :items
 * ha_one   :order
 
 ## items table
-| column          | type      | option                        |
-|-----------------|-----------|-------------------------------|
-| item_name       | string    | null: false                   |
-| category        | string    | null: false                   |
-| price           | integer   | null: false                   |
-| seller_name     | string    | null: false                   |
-| delivery_charge | string    | null: false                   |
-| area            | string    | null: false                   |
-| delivery_date   | string    | null: false                   |
-| comment         | text      | null: false                   |
-| user_id         | reference | null: false, foreign_key: true |
+| column             | type       | option                         |
+|--------------------|------------|--------------------------------|
+| item_name          | string     | null: false                    | <!-- 商品名 -->
+| description        | text       | null: false                    | <!-- 商品の説明 -->
+| category_id        | integer    | null: false                    | <!-- カテゴリー -->
+| condition_id       | integer    | null: false                    | <!-- 商品の状態 -->
+| delivery_charge_id | integer    | null: false                    | <!-- 配送料の負担 -->
+| area_id            | integer    | null: false                    | <!-- 発送元の地域 -->
+| delivery_date_id   | integer    | null: false                    | <!-- 発送までの日数 -->
+| price              | integer    | null: false                    | <!-- 値　段 -->
+| user               | references | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :user
 - has_many   :orders
 
-## orders_table
-| column         | type      | option                         |
-|----------------|-----------|--------------------------------|
-| post_code      | string    | null: false                    |
-| prefectures    | string    | null: false                    |
-| municipalities | string    | null: false                    |
-| address        | string    | null: false                    |
-| building       | string    | null: false                    |
-| phone_number   | integer   | null: false                    |
-| user_id        | reference | null: false, foreign_key: true |
-| item_id        | reference | null: false, foreign_key: true |
+## orders table
+| column  | type       | option                         |
+|---------|------------|--------------------------------|
+| user    | references | null: false, foreign_key: true |
+| item    | references | null: false, foreign_key: true |
+| address | references | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :user
 - belongs_to :item
+
+## address table
+| column         | type       | option                         |
+|----------------|------------|--------------------------------|
+| post_code      | string     | null: false                    | <!-- 郵便番号 -->
+| prefectures_id | integer    | null: false                    | <!-- 都道府県 -->
+| municipalities | string     | null: false                    | <!-- 市町村区 -->
+| address        | string     | null: false                    | <!-- 番　地 -->
+| building       | string     |                                | <!-- 建物名 -->
+| phone_number   | string     | null: false                    | <!-- 電話番号 -->
+| user           | references | null: false, foreign_key: true |
