@@ -14,7 +14,8 @@
 
 ### Association
 * has_many :items
-* ha_one   :order
+* has_many :orders
+* has_many :addresses
 
 ## items table
 | column             | type       | option                         |
@@ -31,7 +32,7 @@
 
 ### Association
 - belongs_to :user
-- has_many   :orders
+- has_one    :orders
 
 ## orders table
 | column  | type       | option                         |
@@ -42,6 +43,7 @@
 
 ### Association
 - belongs_to :user
+- belongs_to :address
 - belongs_to :item
 
 ## address table
@@ -54,3 +56,7 @@
 | building       | string     |                                | <!-- 建物名 -->
 | phone_number   | string     | null: false                    | <!-- 電話番号 -->
 | user           | references | null: false, foreign_key: true |
+
+### Association
+- belongs_to :user
+- has_many   :orders
