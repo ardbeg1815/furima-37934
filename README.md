@@ -15,7 +15,6 @@
 ### Association
 * has_many :items
 * has_many :orders
-* has_many :addresses
 
 ## items table
 | column             | type       | option                         |
@@ -39,7 +38,6 @@
 |---------|------------|--------------------------------|
 | user    | references | null: false, foreign_key: true |
 | item    | references | null: false, foreign_key: true |
-| address | references | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :user
@@ -55,8 +53,7 @@
 | address        | string     | null: false                    | <!-- 番　地 -->
 | building       | string     |                                | <!-- 建物名 -->
 | phone_number   | string     | null: false                    | <!-- 電話番号 -->
-| user           | references | null: false, foreign_key: true |
+| order          | references | null: false, foreign_key: true |
 
 ### Association
-- belongs_to :user
 - belongs_to :order

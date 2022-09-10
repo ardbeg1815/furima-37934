@@ -1,13 +1,13 @@
 <mxfile host="65bd71144e">
     <diagram id="i3TKK0XX6aWinznN4JGe" name="ページ1">
-        <mxGraphModel dx="1622" dy="1221" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="1575" dy="1149" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
-                <mxCell id="2" value="&lt;b style=&quot;font-size: 15px&quot;&gt;orders table&lt;/b&gt;&lt;br style=&quot;font-size: 15px&quot;&gt;&amp;nbsp;- user_id&lt;br&gt;&amp;nbsp;- address_id&lt;br&gt;&amp;nbsp;- item_id" style="whiteSpace=wrap;html=1;align=left;fontSize=15;" vertex="1" parent="1">
+                <mxCell id="2" value="&lt;b style=&quot;font-size: 15px&quot;&gt;orders table&lt;/b&gt;&lt;br style=&quot;font-size: 15px&quot;&gt;&amp;nbsp;- user_id&lt;br&gt;&amp;nbsp;- item_id" style="whiteSpace=wrap;html=1;align=left;fontSize=15;" vertex="1" parent="1">
                     <mxGeometry x="-320" y="640" width="280" height="200" as="geometry"/>
                 </mxCell>
-                <mxCell id="3" value="&lt;b style=&quot;font-size: 15px&quot;&gt;items table&lt;/b&gt;&lt;br style=&quot;font-size: 15px&quot;&gt;&amp;nbsp;- item_name&lt;br&gt;&amp;nbsp;- description&lt;br style=&quot;font-size: 15px&quot;&gt;&amp;nbsp;- category&lt;br&gt;&amp;nbsp;- condition&lt;br&gt;&amp;nbsp;- delivery_charge&lt;br style=&quot;font-size: 15px&quot;&gt;&amp;nbsp;- area&lt;br style=&quot;font-size: 15px&quot;&gt;&amp;nbsp;- delivery_date&lt;br style=&quot;font-size: 15px&quot;&gt;&amp;nbsp;- price&lt;br style=&quot;font-size: 15px&quot;&gt;&amp;nbsp;- user_id" style="whiteSpace=wrap;html=1;align=left;fontSize=15;" vertex="1" parent="1">
+                <mxCell id="3" value="&lt;b style=&quot;font-size: 15px&quot;&gt;items table&lt;/b&gt;&lt;br style=&quot;font-size: 15px&quot;&gt;&amp;nbsp;- item_name&lt;br&gt;&amp;nbsp;- description&lt;br style=&quot;font-size: 15px&quot;&gt;&amp;nbsp;- category&lt;br&gt;&amp;nbsp;- condition&lt;br&gt;&amp;nbsp;- delivery_charge&lt;br style=&quot;font-size: 15px&quot;&gt;&amp;nbsp;- prefecture&lt;br style=&quot;font-size: 15px&quot;&gt;&amp;nbsp;- delivery_date&lt;br style=&quot;font-size: 15px&quot;&gt;&amp;nbsp;- price&lt;br style=&quot;font-size: 15px&quot;&gt;&amp;nbsp;- user_id" style="whiteSpace=wrap;html=1;align=left;fontSize=15;" vertex="1" parent="1">
                     <mxGeometry x="-320" y="280" width="280" height="200" as="geometry"/>
                 </mxCell>
                 <mxCell id="4" value="&amp;nbsp;&lt;b style=&quot;font-size: 15px&quot;&gt;users table&lt;/b&gt;&lt;br style=&quot;font-size: 15px&quot;&gt;&amp;nbsp;- nick_name&lt;br style=&quot;font-size: 15px&quot;&gt;&amp;nbsp;- email&lt;br style=&quot;font-size: 15px&quot;&gt;&amp;nbsp;- encrypted_password&lt;br style=&quot;font-size: 15px&quot;&gt;&amp;nbsp;- last_name&lt;br style=&quot;font-size: 15px&quot;&gt;&amp;nbsp;- first_name&lt;br style=&quot;font-size: 15px&quot;&gt;&amp;nbsp;- kana_last&lt;br style=&quot;font-size: 15px&quot;&gt;&amp;nbsp;- kana_first&lt;br style=&quot;font-size: 15px&quot;&gt;&amp;nbsp;- birth_day" style="whiteSpace=wrap;html=1;align=left;fontSize=15;" vertex="1" parent="1">
@@ -34,21 +34,6 @@
                         <mxPoint x="-510" y="360" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="12" value="" style="endArrow=none;html=1;fontSize=15;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="4" target="16">
-                    <mxGeometry width="50" height="50" relative="1" as="geometry">
-                        <mxPoint x="-710" y="490" as="sourcePoint"/>
-                        <mxPoint x="-660.29" y="625" as="targetPoint"/>
-                        <Array as="points">
-                            <mxPoint x="-660" y="560"/>
-                        </Array>
-                    </mxGeometry>
-                </mxCell>
-                <mxCell id="13" value="" style="endArrow=none;html=1;fontSize=15;" edge="1" parent="1">
-                    <mxGeometry width="50" height="50" relative="1" as="geometry">
-                        <mxPoint x="-680" y="490" as="sourcePoint"/>
-                        <mxPoint x="-640" y="490" as="targetPoint"/>
-                    </mxGeometry>
-                </mxCell>
                 <mxCell id="14" value="" style="endArrow=none;html=1;fontSize=15;" edge="1" parent="1">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
                         <mxPoint x="-200" y="490" as="sourcePoint"/>
@@ -56,15 +41,15 @@
                         <Array as="points"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="16" value="&lt;b style=&quot;font-size: 15px&quot;&gt;address table&lt;/b&gt;&lt;br style=&quot;font-size: 15px&quot;&gt;&amp;nbsp;- post code&lt;br style=&quot;font-size: 15px&quot;&gt;&amp;nbsp;- prefectures&lt;br style=&quot;font-size: 15px&quot;&gt;&amp;nbsp;- municipalities&lt;br style=&quot;font-size: 15px&quot;&gt;&amp;nbsp;- address&lt;br style=&quot;font-size: 15px&quot;&gt;&amp;nbsp;- building&lt;br style=&quot;font-size: 15px&quot;&gt;&amp;nbsp;- phon_number&lt;br&gt;&amp;nbsp;- user_id" style="whiteSpace=wrap;html=1;align=left;fontSize=15;" vertex="1" parent="1">
+                <mxCell id="16" value="&lt;b style=&quot;font-size: 15px&quot;&gt;address table&lt;/b&gt;&lt;br style=&quot;font-size: 15px&quot;&gt;&amp;nbsp;- post code&lt;br style=&quot;font-size: 15px&quot;&gt;&amp;nbsp;- prefecture&lt;br style=&quot;font-size: 15px&quot;&gt;&amp;nbsp;- municipalities&lt;br style=&quot;font-size: 15px&quot;&gt;&amp;nbsp;- address&lt;br style=&quot;font-size: 15px&quot;&gt;&amp;nbsp;- building&lt;br style=&quot;font-size: 15px&quot;&gt;&amp;nbsp;- phon_number&lt;br&gt;&amp;nbsp;- order_id" style="whiteSpace=wrap;html=1;align=left;fontSize=15;" vertex="1" parent="1">
                     <mxGeometry x="-800" y="640" width="280" height="200" as="geometry"/>
                 </mxCell>
-                <mxCell id="17" value="" style="endArrow=none;html=1;fontSize=15;exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="4" target="2">
+                <mxCell id="17" value="" style="endArrow=none;html=1;fontSize=15;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="4" target="2">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
                         <mxPoint x="-600" y="520" as="sourcePoint"/>
                         <mxPoint x="-260" y="600" as="targetPoint"/>
                         <Array as="points">
-                            <mxPoint x="-590" y="560"/>
+                            <mxPoint x="-660" y="560"/>
                             <mxPoint x="-250" y="560"/>
                         </Array>
                     </mxGeometry>
@@ -83,8 +68,8 @@
                 </mxCell>
                 <mxCell id="21" value="" style="endArrow=none;html=1;fontSize=15;" edge="1" parent="1">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
-                        <mxPoint x="-610" y="490" as="sourcePoint"/>
-                        <mxPoint x="-570" y="490" as="targetPoint"/>
+                        <mxPoint x="-680" y="490" as="sourcePoint"/>
+                        <mxPoint x="-640" y="490" as="targetPoint"/>
                         <Array as="points"/>
                     </mxGeometry>
                 </mxCell>
@@ -94,15 +79,6 @@
                         <mxPoint x="-560" y="500" as="targetPoint"/>
                         <Array as="points">
                             <mxPoint x="-250" y="600"/>
-                        </Array>
-                    </mxGeometry>
-                </mxCell>
-                <mxCell id="24" value="" style="endArrow=none;html=1;fontSize=15;entryX=0.18;entryY=-0.004;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.315;exitY=-0.002;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1">
-                    <mxGeometry width="50" height="50" relative="1" as="geometry">
-                        <mxPoint x="-641.1000000000001" y="639.9999999999999" as="sourcePoint"/>
-                        <mxPoint x="-678.8999999999999" y="639.6" as="targetPoint"/>
-                        <Array as="points">
-                            <mxPoint x="-659.3" y="600.4"/>
                         </Array>
                     </mxGeometry>
                 </mxCell>
