@@ -38,8 +38,18 @@ end
       @user.valid?
       expect(@user.errors.full_messages).to include("Password is too short (minimum is 6 characters)")
     end
-    it "passwordは半角英数字混合" do
+    it "passwordは数字のみ不可" do
       @user.password = '123456'
+      @user.valid?
+      expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password")
+    end
+    it "passwordは英字のみ不可" do
+      @user.password = 'abcdef'
+      @user.valid?
+      expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password")
+    end
+    it "passwordは全角不可" do
+      @user.password = '全角１２３４'
       @user.valid?
       expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password")
     end
@@ -49,29 +59,105 @@ end
       @user.valid?
       expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password")
     end
-    it "名字,名前必須" do
+    it "名字必須" do
       @user.last_name = ''
+      @user.valid?
+      expect(@user.errors.full_messages).to include("Last name can't be blank")
+    end
+    it "名前必須" do
       @user.first_name = ''
       @user.valid?
-      expect(@user.errors.full_messages).to include("Last name can't be blank", "First name can't be blank")
+      expect(@user.errors.full_messages).to include("First name can't be blank")
     end
-    it "名字,名前は全角(漢字・ひらがな、カタカナ)入力必須" do
-      @user.last_name = 'naoki'
-      @user.first_name = 'takahara'
+    it "名字は半角数字不可" do
+      @user.last_name = '12345'
       @user.valid?
-      expect(@user.errors.full_messages).to include("Last name is invalid", "First name is invalid")
+      expect(@user.errors.full_messages).to include("Last name is invalid")
     end
-    it "カナ名字,カナ名前必須" do
-      @user.kana_last= ''
+    it "名字は半角英字不可" do
+      @user.last_name = 'abcde'
+      @user.valid?
+      expect(@user.errors.full_messages).to include("Last name is invalid")
+    end
+    it "名前は半角数字不可" do
+      @user.first_name = '12345'
+      @user.valid?
+      expect(@user.errors.full_messages).to include("First name is invalid")
+    end
+    it "名前は半角英字不可" do
+      @user.first_name = 'abcde'
+      @user.valid?
+      expect(@user.errors.full_messages).to include("First name is invalid")
+    end
+    it "カナ名字必須" do
+      @user.kana_last = ''
+      @user.valid?
+      expect(@user.errors.full_messages).to include("Kana last can't be blank")
+    end
+    it "カナ名前必須" do
       @user.kana_first = ''
       @user.valid?
-      expect(@user.errors.full_messages).to include("Kana last can't be blank", "Kana first can't be blank")
+      expect(@user.errors.full_messages).to include("Kana first can't be blank")
     end
-    it "カナ名字,カナ名前必須" do
-      @user.kana_last= '高原'
+    it "カナ名字漢字不可" do
+      @user.kana_last = '高原'
+      @user.valid?
+      expect(@user.errors.full_messages).to include("Kana last is invalid")
+    end
+    it "カナ名字ひらがな不可" do
+      @user.kana_last = 'たかはら'
+      @user.valid?
+      expect(@user.errors.full_messages).to include("Kana last is invalid")
+    end
+    it "カナ名字全角数字不可" do
+      @user.kana_last = '１２３４５'
+      @user.valid?
+      expect(@user.errors.full_messages).to include("Kana last is invalid")
+    end
+    it "カナ名字全角英字不可" do
+      @user.kana_last = 'ａｂｃｄｅ'
+      @user.valid?
+      expect(@user.errors.full_messages).to include("Kana last is invalid")
+    end
+    it "カナ名字半角数字不可" do
+      @user.kana_last = '12345'
+      @user.valid?
+      expect(@user.errors.full_messages).to include("Kana last is invalid")
+    end
+    it "カナ名字半角英字不可" do
+      @user.kana_last = 'abcde'
+      @user.valid?
+      expect(@user.errors.full_messages).to include("Kana last is invalid")
+    end
+    it "カナ名前漢字不可" do
       @user.kana_first = '正樹'
       @user.valid?
-      expect(@user.errors.full_messages).to include("Kana last is invalid", "Kana first is invalid")
+      expect(@user.errors.full_messages).to include("Kana first is invalid")
+    end
+    it "カナ名前ひらがな不可" do
+      @user.kana_first = 'なおき'
+      @user.valid?
+      expect(@user.errors.full_messages).to include("Kana first is invalid")
+    end
+    it "カナ名字全角数字不可" do
+      @user.kana_first = '１２３４５'
+      @user.valid?
+      expect(@user.errors.full_messages).to include("Kana first is invalid")
+    end
+    it "カナ名字全角英字不可" do
+      @user.kana_first = 'ａｂｃｄｅ'
+      @user.valid?
+      expect(@user.errors.full_messages).to include("Kana first is invalid")
+    end
+    it "カナ名字半角数字不可" do
+      @user.kana_first = '12345'
+      @user.valid?
+      expect(@user.errors.full_messages).to include("Kana first is invalid")
+    end
+    it "カナ名字半角英字不可" do
+      @user.kana_first = 'abcde'
+      @user.valid?
+      expect(@user.errors.full_messages).to include("Kana first is invalid")
     end
     it "生年月日必須" do
       @user.birth_day = ''
