@@ -43,7 +43,7 @@ class ItemsController < ApplicationController
   end
   private
   def item_params
-    params.require(:item).permit(:item_name, :description, :category_id, :condition_id, :delivery_charge_id, :prefecture_id, :delivery_date_id,:price, :image).merge(user_id: current_user.id)
+    params.require(:item).permit(:item_name, :description, :category_id, :condition_id, :delivery_charge_id, :prefecture_id, :delivery_date_id, :price, :image).merge(user_id: current_user.id)
   end
 
   def redirect_root
