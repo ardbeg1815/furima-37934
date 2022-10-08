@@ -3,8 +3,7 @@ class OrdersController < ApplicationController
   
   def index
     redirect_to new_user_session_path unless user_signed_in?
-    redirect_to root_path if current_user == @item.user
-    redirect_to root_path if current_user != @item.user && @item.order.present?
+    redirect_to root_path if current_user == @item.user || @item.order.present?
     @donation = Donation.new
   end
 

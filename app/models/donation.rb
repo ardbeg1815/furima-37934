@@ -9,6 +9,8 @@ class Donation
     validates :municipalities
     validates :address
     validates :phone_number, format: { with: /\A\d{10,11}\z/, message: "10〜11桁で入力してください" }
+    validates :user_id
+    validates :item_id
   end
 
   def save
