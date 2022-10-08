@@ -23,7 +23,8 @@ class ItemsController < ApplicationController
   def show
   end
 
-  def edit 
+  def edit
+    redirect_to root_path if @item.order.present?
   end
 
   def update
