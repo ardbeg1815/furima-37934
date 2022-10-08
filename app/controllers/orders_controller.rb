@@ -2,7 +2,7 @@ class OrdersController < ApplicationController
   before_action :item_find, only: [:index, :create]
   
   def index
-    redirect_to root_path unless user_signed_in?
+    redirect_to new_user_session_path unless user_signed_in?
     redirect_to root_path if current_user == @item.user
     redirect_to root_path if current_user != @item.user && @item.order.present?
     @donation = Donation.new
@@ -10,13 +10,11 @@ class OrdersController < ApplicationController
 
   def create
     @donation = Donation.new(donation_params)
-    #binding.pry
     if @donation.valid?
       pay_item
       @donation.save
       redirect_to root_path
     else
-      #@item = Item.find(params[:item_id])
       render :index
     end
   end
