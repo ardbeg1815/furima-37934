@@ -1,6 +1,6 @@
 if(document.URL.match(/orders/)){
 const pay = () => {
-  Payjp.setPublicKey("pk_test_9e8cf1b3e3ad965b92ee7b94");
+  Payjp.setPublicKey(process.env.PAYJP_PUBLIC_KEY);
   const submit = document.getElementById("button");
   submit.addEventListener("click", (e) => {
     e.preventDefault();

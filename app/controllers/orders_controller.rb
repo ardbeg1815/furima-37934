@@ -10,6 +10,7 @@ class OrdersController < ApplicationController
 
   def create
     @donation = Donation.new(donation_params)
+    #binding.pry
     if @donation.valid?
       pay_item
       @donation.save
@@ -31,7 +32,7 @@ class OrdersController < ApplicationController
   end
 
   def pay_item
-    Payjp.api_key = "sk_test_dd6ef05a179ed8d89b847189" 
+    Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
     Payjp::Charge.create(
       amount: @item.price,
       card: donation_params[:token],
