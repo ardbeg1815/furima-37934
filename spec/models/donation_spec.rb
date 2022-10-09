@@ -2,8 +2,10 @@ require 'rails_helper'
 
 RSpec.describe Donation, type: :model do
   before do
-    @donation = FactoryBot.build(:donation)
-end
+    user = FactoryBot.create(:user)
+    item = FactoryBot.create(:item)
+    @donation = FactoryBot.build(:donation, user_id: user.id, item_id: item.id)
+  end
   describe "商品購入機能" do
     describe "購入できる時" do
       it 'すべての値が正しく入力されていれば保存できること' do
@@ -56,12 +58,17 @@ end
       it '電話番号は９桁以下では登録できない' do
         @donation.phone_number = 123456789
         @donation.valid?
-        expect(@donation.errors.full_messages).to include("Phone number 10〜11桁で入力してください")
+        expect(@donation.errors.full_messages).to include("Phone number 半角数字10〜11桁で入力してください")
       end
       it '電話番号は１２桁以上では登録できない' do
         @donation.phone_number = 123456789012
         @donation.valid?
-        expect(@donation.errors.full_messages).to include("Phone number 10〜11桁で入力してください")
+        expect(@donation.errors.full_messages).to include("Phone number 半角数字10〜11桁で入力してください")
+      end
+      it '電話番号は半角数字以外では登録できない' do
+        @donation.phone_number = "０９０１２３４５６７８"
+        @donation.valid?
+        expect(@donation.errors.full_messages).to include("Phone number 半角数字10〜11桁で入力してください")
       end
       it 'user_idは空では登録できない' do
         @donation.user_id = nil
